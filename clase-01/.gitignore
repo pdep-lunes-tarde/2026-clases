@@ -1,0 +1,5 @@
+.stack-work/
+*~
+.history
+*.exe
+*.obj
