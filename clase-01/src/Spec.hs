@@ -5,6 +5,11 @@ import Test.Hspec
 
 correrTests :: IO ()
 correrTests = hspec $ do
+    it "un numero es divisible por otro si el modulo entre divisor y dividendo es 0" $ do
+        shouldBe (esDivisiblePor 4 2) True
+    it "un numero NO es divisible por otro si el modulo entre divisor y dividendo NO es 0" $ do
+        shouldBe (esDivisiblePor 3 2) False
+
     it "un año es bisiesto si es divisible por 400" $ do
         shouldBe (bisiesto 800) True
     it "un año no es bisiesto si no es divisible por 400" $ do

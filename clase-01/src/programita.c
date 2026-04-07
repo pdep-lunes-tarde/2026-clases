@@ -1,13 +1,18 @@
 #include <stdio.h>
 
-int coso(int a[], int b) {
-  int c, d = 0;
-  for (c = 0; c < b; c++) {
-    if (a[c] % 2 == 0) {
-      d = d + 1;
+
+int cuantosPares(int numeros[], int tamanio) {
+  int nPares = 0;
+  for (int i = 0; i < tamanio; i++) {
+    if (esPar(numeros[i])) {
+      nPares++;
     }
   }
-  return d;
+  return nPares;
+}
+
+int esPar(int numero) {
+  return numero % 2 == 0;
 }
 
 int main() {
@@ -16,3 +21,4 @@ int main() {
   printf("Respuesta: %d\n", coso(xs, 8));
   printf("--------------\n");
 }
++
