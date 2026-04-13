@@ -3,9 +3,27 @@ module Library (module Library, isPrefixOf, isSuffixOf) where
 import PdePreludat
 import Data.List (isPrefixOf, isSuffixOf)
 
--- estaEntre = implementame
+valorAbsoluto :: Number -> Number
+valorAbsoluto x
+    | x >= 0 = x
+    | otherwise = -x
 
--- valorAbsoluto = implementame
+
+estaEntre :: Ord a => a -> a -> a -> Bool
+-- estaEntre valor unaCota otraCota
+--    = valor >= unaCota && valor <= otraCota
+
+estaEntre valor unaCota otraCota
+    | unaCota <= otraCota = unaCota <= valor && valor <= otraCota
+    | unaCota > otraCota  = unaCota >= valor && valor >= otraCota
+
+estaEntre' valor unaCota otraCota
+    | unaCota <= otraCota = unaCota <= valor && valor <= otraCota
+    | otherwise = estaEntre' valor otraCota unaCota
+
+estaEntre'' :: Ord a => a -> a -> a -> Bool
+estaEntre'' valor unaCota otraCota =
+    valor >= min unaCota otraCota && valor <= max unaCota otraCota
 
 -- preguntar :: String -> String
 -- preguntar oracion
