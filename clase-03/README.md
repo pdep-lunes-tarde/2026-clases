@@ -7,7 +7,7 @@
 
 ## Para la clase que viene
 
-- Hacer el TP-3: **PROXIMAMENTE EL LINK**
+- Hacer el TP-3: https://classroom.github.com/a/JujjJXCO
 
 ## ¿Qué mas puedo leer, ver o practicar?
 
