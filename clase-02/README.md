@@ -1,37 +1,41 @@
-# Clase 2 - Introducción a Funcional. Tipado. Funciones por partes.
-
-Sigue el paro docente por el atraso de los salarios docentes y el incumplimiento de la ley 27.795.
+# Clase 3 - Tipos compuestos, parte 1: Tuplas y Data. Pattern Matching. Inmutabilidad. Intro a typeclasses.
 
 ## Material de la clase
 
-- Slides: https://docs.google.com/presentation/d/1qizRLeId7mNrd4fp56zvmitlLlH5Ti68jWsDUExlHR4/edit?usp=drive_link
+- Slides: 
+- Código: Acá mismo :D.
+
 
 ## Para la clase que viene
 
-- Hacer el [TP-2](https://classroom.github.com/a/33CzGp0k)
+- Hacer el [TP-3](https://classroom.github.com/a/KG0iIWvx)
 
 ## ¿Qué mas puedo leer, ver o practicar?
 
-### Ejercicios de Miyuki
-
-- Guía 7, ejercicios 1 al 4.
-- Guía 2 entera.
-- Guía 3, ejercicios 7 al 11.
-
 ### Apuntes de la cátedra
 
-- [Módulo 1: Introducción al paradigma. Función. Variable. Primeros ejemplos. Aplicación. Guardas.](https://docs.google.com/document/d/1W5BcOmIJMCylqAjqPw1RzPlujycbvNJueh8-Uyc2fMY/edit)
+- [Módulo 3: Modelado de información.](https://drive.google.com/open?id=11C2UAbP70dP7sTID-ZxJm_a-5ypKxQUEuZr6GVk5yFI) (pueden saltearse la parte de **Listas** por ahora)
 
 ### Wiki de uqbar
 
-- [Funciones por partes](https://wiki.uqbar.org/wiki/articles/funciones-por-partes.html)
+- [Pattern Matching](https://wiki.uqbar.org/wiki/articles/pattern-matching-en-haskell.html)
+- [Data](https://wiki.uqbar.org/wiki/articles/data--definiendo-nuestros-tipos-en-haskell.html)
+- [Typeclasses](https://wiki.uqbar.org/wiki/articles/typeclasses.html)
 
 ### Videos de otros años/cursos
 
-- Intro a funcional, por Feche y Juan del 2020, 37'
+- Intro a Pattern Matching, por Alf y El Rasta, 5'
 
-[![Intro a Funcional](https://img.youtube.com/vi/7RXgvJiHKoA/0.jpg)](https://www.youtube.com/watch?v=7RXgvJiHKoA "Intro a Funcional")
+[![Pattern Matching - Alf y El Rasta](https://img.youtube.com/vi/OaPxc03WVTU/0.jpg)](https://youtu.be/OaPxc03WVTU "Pattern Matching - Alf y El Rasta")
 
-- Guardas, por Alf y El Rasta, 5'
+- Pattern Matching, por Maiu y Nahuel, 30'
 
-[![Guardas](https://img.youtube.com/vi/qv5RuZl5iCo/0.jpg)](https://youtu.be/qv5RuZl5iCo "Guardas")
+[![Pattern Matching - Maiu y Nahue](https://img.youtube.com/vi/TIo7c4hWZi0/0.jpg)](https://youtu.be/TIo7c4hWZi0 "Pattern Matching - Maiu y Nahue")
+
+- Data y Tuplas, por Maiu y Juan A, 1hr
+
+[![Data y Tuplas](https://img.youtube.com/vi/6tEGnH_FYGY/0.jpg)](https://youtu.be/6tEGnH_FYGY "Data y Tuplas")
+
+- Data, tuplas y type alias, Nico S, 1.5hs
+
+[![Data, tuplas y type alias](https://img.youtube.com/vi/KTSmeW54yJE/0.jpg)](https://youtu.be/KTSmeW54yJE "Data, tuplas y type alias")

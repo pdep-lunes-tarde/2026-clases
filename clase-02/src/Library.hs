@@ -52,3 +52,12 @@ preguntar oracion = implementame
 -- >>> preguntar "hola"
 -- "¿hola?"-- >>> preguntar "hola?"
 -- "¿hola?"
+
+-- charAAscii 'a' = 97
+-- charAAscii 'b' = 98
+-- ...etc
+
+indexOf elem (x:xs) | elem == x = 0
+indexOf elem (x:xs) = 1 + indexOf elem xs
+
+charAAscii char = indexOf char "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~" + 33
