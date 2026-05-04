@@ -48,19 +48,19 @@ El Índice de Precios al Consumidor (IPC) es un indicador económico que mide la
 
 Contamos con los datos de ipc desde diciembre de 2016 hasta marzo de 2026.
 
-La fórmula para ajustar un valor de un mes a otro utilizando el ipc es una simple regla de 3 simple:
+La fórmula para ajustar un valorIpc de un mes a otro utilizando el ipc es una simple regla de 3 simple:
 
 Por ejemplo, si quisiéramos saber cuánto costaría hoy en día un alfajor que en Enero del 2020 costaba $500, se calcularía como:
 500 * ipc(Marzo 2026) / ipc(Enero 2020)
 
-3. Implementar una función `ajustadoPorIpc` que dados un valor, una fecha origen y una nueva fecha destino, nos devuelva el valor ajustado por IPC.
+3. Implementar una función `ajustadoPorIpc` que dados un valorIpc, una fecha origen y una nueva fecha destino, nos devuelva el valorIpc ajustado por IPC.
 
 4. Ahora queremos, dado un sueldo de un docente en un determinado período (año + mes), ajustarlo por ipc a cada período (año + mes) del 2026.
 
 5. Lo siguiente es hacer una comparativa: dado un período para tomar de referencia, un docente y un período destino, queremos saber qué tan por abajo o por arriba está su sueldo real de su sueldo ajustado por ipc.
 Queremos comparar de 2 maneras:
 
-    a) Por valor absoluto: Sueldo real - Sueldo ajustado por ipc.
+    a) Por valorIpc absoluto: Sueldo real - Sueldo ajustado por ipc.
     b) Por porcentaje: (Sueldo real - Sueldo ajustado por ipc) / Sueldo real.
 
 6. Usar esas 2 funciones para comparar los valores de los salario mes a mes de un docente en 2026 contra los valores ajustados tomando como referencia alguna fecha en el pasado.
