@@ -16,10 +16,4 @@ data SalarioBasico = SalarioBasico
   , valorSalario      :: Number
   } deriving (Show, Eq)
 
-data Docente = Docente
-  { nombreDocente     :: String
-  , categoriaDocente  :: Categoria
-  , dedicacionDocente :: Dedicacion
-  } deriving (Show, Eq)
-
 data Ipc = Ipc { periodoIpc :: Periodo, valorIpc :: Number } deriving (Show, Eq)

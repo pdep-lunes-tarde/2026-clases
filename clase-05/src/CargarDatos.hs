@@ -5,6 +5,7 @@ import PdePreludat
 import Types
 import Prelude (readFile, read, lines, Rational, Double)
 import qualified Redefinitions as SalarioBasico
+import GHC.IO (unsafePerformIO)
 
 -- Hay comentarios explicando cosas que no se ven en la materia que son relevantes para entender este código.
 
@@ -160,3 +161,10 @@ cargarIpc = do
 
   return (zipWith Ipc periodos valores)
 
+------
+
+salariosCargados :: [SalarioBasico]
+salariosCargados = unsafePerformIO cargarTodosSalarios
+
+valoresIpcCargados :: [Ipc]
+valoresIpcCargados = unsafePerformIO cargarIpc
