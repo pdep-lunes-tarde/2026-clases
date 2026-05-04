@@ -53,13 +53,12 @@ La fórmula para ajustar un valorIpc de un mes a otro utilizando el ipc es una s
 Por ejemplo, si quisiéramos saber cuánto costaría hoy en día un alfajor que en Enero del 2020 costaba $500, se calcularía como:
 500 * ipc(Marzo 2026) / ipc(Enero 2020)
 
-3. Implementar una función `ajustadoPorIpc` que dados un valorIpc, una fecha origen y una nueva fecha destino, nos devuelva el valorIpc ajustado por IPC.
+3. Implementar una función `ajustadoPorIpc` que dados un valor, una fecha origen y una nueva fecha destino, nos devuelva el valor ajustado por IPC.
 
-4. Ahora queremos, dado un sueldo de un docente en un determinado período (año + mes), ajustarlo por ipc a cada período (año + mes) del 2026.
+4. a) Ahora queremos, dado un sueldo de un docente en un determinado período (año + mes), ajustarlo por ipc a cada período (año + mes) del 2026.
 
 5. Lo siguiente es hacer una comparativa: dado un período para tomar de referencia, un docente y un período destino, queremos saber qué tan por abajo o por arriba está su sueldo real de su sueldo ajustado por ipc.
 Queremos comparar de 2 maneras:
-
     a) Por valorIpc absoluto: Sueldo real - Sueldo ajustado por ipc.
     b) Por porcentaje: (Sueldo real - Sueldo ajustado por ipc) / Sueldo real.
 
@@ -69,6 +68,5 @@ Dados varios docentes, queremos saber si dado un período de referencia y un per
 
 7. Finalmente, queremos hacer una consulta más:
 Tomando como referencia algún período en el pasado para hacer ajustes por IPC,
-
     a) ¿Cuál es el acumulado de plata que viene perdiendo un docente desde octubre de 2025 hasta la fecha?
     b) ¿Cuántos sueldos de ese docente son en la actualidad?
