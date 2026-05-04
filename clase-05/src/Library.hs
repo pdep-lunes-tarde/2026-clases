@@ -4,6 +4,7 @@ import Types
 import CargarDatos (cargarIpc, cargarTodosSalarios)
 import GHC.IO (unsafePerformIO)
 
+
 juan :: Docente
 juan = Docente { nombreDocente = "Juan", categoriaDocente = Adjunto, dedicacionDocente = Simple }
 
