@@ -2,12 +2,19 @@
 
 ## Material de la clase
 
-- Slides: 
+- Enunciado: en `enunciado.md`, o https://docs.google.com/document/d/1EOk8Hg9ZtGKG9Ai8C49eHmfd52l4ZFPO1tL4nTupt2w/edit?usp=sharing
+- Slides: **PROXIMAMENTE**
 - Código: Acá mismo :D.
+Datos:
+https://www.sidut.org.ar/images/Documentos/Salarios_2022.pdf
+https://www.sidut.org.ar/images/Documentos/Salarios_2023.pdf
+https://www.sidut.org.ar/images/Documentos/Salarios_2024.pdf
+https://www.sidut.org.ar/images/Documentos/Salarios_2025.pdf
+https://www.sidut.org.ar/images/Documentos/Salarios_2026.pdf
 
 ## Para la clase que viene
 
-- Hacer el TP-5: 
+- Hacer el TP-6:  **PROXIMAMENTE**
 - Avanzar en el tp integrador, que la primera entrega es la clase que viene (11/5): https://classroom.github.com/a/wVm_qkUM
 
 ## ¿Qué mas puedo leer, ver o practicar?
