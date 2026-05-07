@@ -6,11 +6,13 @@
 - Slides: https://docs.google.com/presentation/d/1fsJCCSJRdXx0nub_cmiuH6Vy810pXW-jkeB-3n4tRAo/edit?usp=sharing
 - Código: Acá mismo :D.
 Datos:
-https://www.sidut.org.ar/images/Documentos/Salarios_2022.pdf
-https://www.sidut.org.ar/images/Documentos/Salarios_2023.pdf
-https://www.sidut.org.ar/images/Documentos/Salarios_2024.pdf
-https://www.sidut.org.ar/images/Documentos/Salarios_2025.pdf
-https://www.sidut.org.ar/images/Documentos/Salarios_2026.pdf
+- https://www.sidut.org.ar/images/Documentos/Salarios_2022.pdf
+- https://www.sidut.org.ar/images/Documentos/Salarios_2023.pdf
+- https://www.sidut.org.ar/images/Documentos/Salarios_2024.pdf
+- https://www.sidut.org.ar/images/Documentos/Salarios_2025.pdf
+- https://www.sidut.org.ar/images/Documentos/Salarios_2026.pdf
+- www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_04_26.xls
+- https://www.indec.gob.ar/indec/web/Institucional-Indec-calculadora_variaciones_IPC
 
 ## Para la clase que viene
 
