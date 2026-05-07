@@ -2,9 +2,9 @@ module Types where
 import PdePreludat
 
 data Mes = Enero | Febrero | Marzo | Abril | Mayo | Junio | Julio | Agosto | Septiembre | Octubre | Noviembre | Diciembre
-  deriving (Show, Eq, Enum)
+  deriving (Show, Eq, Ord, Enum)
 
-data Periodo = UnPeriodo { mes :: Mes, anio :: Number } deriving (Show, Eq)
+data Periodo = UnPeriodo { anio :: Number, mes :: Mes } deriving (Show, Eq, Ord)
 
 data Dedicacion = Exclusiva | Semiexclusiva | Simple deriving (Show, Eq)
 data Categoria  = Titular | Asociado | Adjunto | JTP | AyudanteDe1era | AyudanteDe2da deriving (Show, Eq)

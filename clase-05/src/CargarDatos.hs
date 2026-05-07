@@ -147,7 +147,7 @@ parsePeriodoIpc mesAnioComoTexto =
   --
   -- e incluso se puede usar pattern matching, como acá:
   let [mesTexto, anioTexto] = separarPor '-' mesAnioComoTexto
-  in UnPeriodo (parseMesAbreviado mesTexto) (parseNumber anioTexto + 2000)
+  in UnPeriodo (parseNumber anioTexto + 2000) (parseMesAbreviado mesTexto) 
 
 cargarIpc :: IO [Ipc]
 cargarIpc = do
