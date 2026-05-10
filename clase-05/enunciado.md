@@ -32,15 +32,15 @@ Lucas es titular con dedicación exclusiva.
 
 1. Es muy difícil trabajar con la información en la forma en la que está dispuesta. Entonces, vamos a implementar diferentes filtros sobre los datos para poder consultar solo aquellos qué:
 
-    a) Corresponden a cierta categoría.
-    b) Corresponden a cierta dedicación.
-    c) Sean de un año particular.
-    d) Sean de un período (año + mes) en particular.
+    - a) Corresponden a cierta categoría.
+    - b) Corresponden a cierta dedicación.
+    - c) Sean de un año particular.
+    - d) Sean de un período (año + mes) en particular.
 
 2. Ahora, queremos dado un docente y un año, poder consultar:
 
-a) los sueldos que correspondan a su categoría y dedicación en ese año.
-b) Cuál fue el total (la sumatoria) de los sueldos que cobró ese año.
+- a) los sueldos que correspondan a su categoría y dedicación en ese año.
+- b) Cuál fue el total (la sumatoria) de los sueldos que cobró ese año.
 
 ## IPC
 
@@ -68,5 +68,5 @@ Dados varios docentes, queremos saber si dado un período de referencia y un per
 
 7. Finalmente, queremos hacer una consulta más:
 Tomando como referencia algún período en el pasado para hacer ajustes por IPC,
-    a) ¿Cuál es el acumulado de plata que viene perdiendo un docente desde octubre de 2025 hasta la fecha?
-    b) ¿Cuántos sueldos de ese docente son en la actualidad?
+    - a) ¿Cuál es el acumulado de plata que viene perdiendo un docente desde octubre de 2025 hasta la fecha?
+    - b) ¿Cuántos sueldos de ese docente son en la actualidad?
