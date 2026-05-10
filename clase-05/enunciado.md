@@ -58,8 +58,8 @@ Por ejemplo, si quisiéramos saber cuánto costaría hoy en día un alfajor que 
 4. Ahora queremos, dado un sueldo de un docente en un determinado período (año + mes), ajustarlo por ipc a cada período (año + mes) del 2026.
 
 5. Lo siguiente es hacer una comparativa: dado un período para tomar de referencia, un docente y un período destino, queremos saber qué tan por abajo o por arriba está su sueldo real de su sueldo ajustado por ipc.
-
 Queremos comparar de 2 maneras:
+
     - a) Por valorIpc absoluto: Sueldo real - Sueldo ajustado por ipc.
     - b) Por porcentaje: (Sueldo real - Sueldo ajustado por ipc) / Sueldo real.
 
