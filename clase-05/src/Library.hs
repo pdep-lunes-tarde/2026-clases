@@ -3,6 +3,18 @@ import PdePreludat
 import Types
 import CargarDatos (valoresIpcCargados, salariosCargados)
 
+-- (Todavía no está publicado el valor de ipc de abril 2026, el archivo mas nuevo usado para los datos
+-- es www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_04_26.xls y la calculadora de inflación
+-- https://www.indec.gob.ar/indec/web/Institucional-Indec-calculadora_variaciones_IPC)
+ultimoPeriodoConDatos :: Periodo
+ultimoPeriodoConDatos = UnPeriodo  2026 Marzo
+
+-- Se va a necesitar un período de referencia en muchas funciones, lo dejamos como un valor definido acá
+-- que se usa en todos lados.
+periodoDeReferencia :: Periodo
+periodoDeReferencia = UnPeriodo 2023 Noviembre
+
+
 juan :: Docente
 juan = UnDocente { nombreDocente = "Juan", categoriaDocente = Adjunto, dedicacionDocente = Simple }
 tomas :: Docente
@@ -51,9 +63,9 @@ filtrarPeriodo periodoBuscado salarios =
 
 sueldosAnualesDocente :: Docente -> Number -> [SalarioBasico]
 sueldosAnualesDocente unDocente unAnio =
-    filtrarDedicacion (dedicacionDocente unDocente)
-                      (filtrarCategoria (categoriaDocente unDocente)
-                                        (filtrarAnio unAnio salariosCargados))
+    filtrarDedicacion (dedicacionDocente unDocente) . filtrarCategoria (categoriaDocente unDocente) .
+    filtrarAnio unAnio $
+    salariosCargados
 
 valoresDeSueldosAnualesDocente :: Docente -> Number -> [Number]
 valoresDeSueldosAnualesDocente unDocente unAnio =
@@ -122,11 +134,6 @@ ajustadoPorIpc valor periodoOrigen periodoDestino = (valor / ipcEn periodoOrigen
 -- Ahora queremos, dado un sueldo de un docente en un determinado período de referencia (año + mes),
 -- ajustarlo por ipc a cada período (año + mes) del 2026.
 
--- Se van a usar periodos de referencia en todas las funciones a partir de acá, lo dejamos como un valor
--- que se usa en todos lados.
-periodoDeReferencia :: Periodo
-periodoDeReferencia = UnPeriodo 2023 Noviembre
-
 salarioRealEn :: Docente -> Periodo -> Number
 salarioRealEn docente periodo = valorSalario (head (filtrarPeriodo periodo (sueldosAnualesDocente docente (anio periodo))))
 
@@ -139,14 +146,10 @@ salarioAjustadoEn docente periodoDestino = ajustadoPorIpc (salarioRealEn docente
 
 -- Con esto ya se puede comparar a ojo haciendo:
 -- >>> salarioRealEn juan (UnPeriodo 2026 Marzo)    
+-- 303420.6400000000139698
 
 -- >>> salarioAjustadoEn juan (UnPeriodo 2026 Marzo)
-
--- (Todavía no está publicado el valor de ipc de abril 2026, el archivo mas nuevo usado para los datos
--- es www.indec.gob.ar/ftp/cuadros/economia/sh_ipc_04_26.xls y la calculadora de inflación
--- https://www.indec.gob.ar/indec/web/Institucional-Indec-calculadora_variaciones_IPC)
-ultimoPeriodoConDatos :: Periodo
-ultimoPeriodoConDatos = UnPeriodo  2026 Marzo
+-- 457413.01261838330296664
 
 periodos2026 :: [Periodo]
 periodos2026 = filter (\periodo -> periodo <= ultimoPeriodoConDatos) (map (\mes -> UnPeriodo 2026 mes ) [Enero .. Diciembre])
