@@ -18,9 +18,6 @@ habitaciones (Hotel h) = h
 hotelDeHilbert :: Hotel
 hotelDeHilbert = Hotel (map (\numero -> Habitacion numero Libre) [1..])
 
-modificarHabitaciones :: ([Habitacion] -> [Habitacion]) -> Hotel -> Hotel
-modificarHabitaciones modificacion (Hotel habitaciones) = Hotel (modificacion habitaciones)
-
 -- Finitely many new guests
 
 -- With one additional guest, the hotel can accommodate them and the existing guests if infinitely many
