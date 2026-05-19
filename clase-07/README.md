@@ -27,6 +27,7 @@ Estructuras de datos infinitas, de Computerphile
 https://tomstu.art/programming-with-nothing#ruining-ruby
 
 - Fun with the Lambda Calculus • Corey Haines • GOTO 2015
+
 [![Fun with the Lambda Calculus • Corey Haines • GOTO 2015](https://img.youtube.com/vi/QPqoFCHpLF4/0.jpg)](https://youtu.be/QPqoFCHpLF4 "Fun with the Lambda Calculus • Corey Haines • GOTO 2015")
 
 - Datos representados con funciones
