@@ -1,4 +1,4 @@
-_# Clase 7 - Lazy Evaluation (Evaluación perezosa)
+# Clase 7 - Lazy Evaluation (Evaluación perezosa)
 
 ## Material de la clase
 
@@ -22,7 +22,13 @@ Estructuras de datos infinitas, de Computerphile
 
 [![To infinity and beyond](https://img.youtube.com/vi/bnRNiE_OVWA/0.jpg)](https://youtu.be/bnRNiE_OVWA "To infinity and beyond")
 
-- Implementando un algoritmo usando SOLAMENTE lambdas: https://tomstu.art/programming-with-nothing#ruining-ruby
+- Implementando un algoritmo usando SOLAMENTE lambdas:
+
+https://tomstu.art/programming-with-nothing#ruining-ruby
 
 - Fun with the Lambda Calculus • Corey Haines • GOTO 2015
 [![Fun with the Lambda Calculus • Corey Haines • GOTO 2015](https://img.youtube.com/vi/QPqoFCHpLF4/0.jpg)](https://youtu.be/QPqoFCHpLF4 "Fun with the Lambda Calculus • Corey Haines • GOTO 2015")
+
+- Datos representados con funciones
+
+[![Datos representados con funciones](https://img.youtube.com/vi/pONQQMKhs0k/0.jpg)](https://youtu.be/pONQQMKhs0k "Datos representados con funciones")
