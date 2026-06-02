@@ -1,8 +1,10 @@
 # Clase 8 - Práctica para el parcial + corrección de TPs integradores
 
-Enunciado: https://docs.google.com/document/d/e/2PACX-1vRc2abhFo_6wizYnREJJRJtaVLFT3R0TpyimdFUt3hzqkO4p5K8vIpqn1DyohINr3GnIwjoqRfgflm2/pub
+Código: acá, en src.
 
-Assignment: https://classroom.github.com/a/mqXDS9X_
+- [Enunciado](https://docs.google.com/document/d/e/2PACX-1vRc2abhFo_6wizYnREJJRJtaVLFT3R0TpyimdFUt3hzqkO4p5K8vIpqn1DyohINr3GnIwjoqRfgflm2/pub)
+
+- [Assignment](https://classroom.github.com/a/mqXDS9X_)
 
 ## Para practicar para el parcial:
 
