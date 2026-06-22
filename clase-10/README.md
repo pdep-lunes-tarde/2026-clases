@@ -2,6 +2,7 @@
 
 ## Material de la clase
 
+- Clase grabada: https://drive.google.com/file/d/1nJJ5LGghIvZCmNTOAxXpD4Cc9MKJK3nX/view?usp=drive_link
 - Slides: https://docs.google.com/presentation/d/1CMnV_a8hIIQRvCMFF2ZyFdl1y3nSVMf_zKHb_V8Px68/edit?usp=sharing
 - Código: hay una implementación del ejercicio grabado en funcional y otra en lógico. Las pueden encontrar en las carpetas `solucion-funcional` y `solucion-logico`.
 
