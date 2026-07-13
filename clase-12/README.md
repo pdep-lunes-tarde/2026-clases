@@ -12,7 +12,8 @@ El recuperatorio de funcional es el 1/8 en medrano a las 9:00.
 
 ## ¿Que hay para la clase que viene?
 
-TP-3: https://classroom.github.com/a/pqbYTPtl   
+TP-3: https://classroom.github.com/a/pqbYTPtl 
+TP-Integrador: https://classroom.github.com/a/bMlQXjg4
 
 ## ¿Qué mas puedo leer, ver o practicar?
 
