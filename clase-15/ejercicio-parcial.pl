@@ -16,7 +16,7 @@ adoracion(olimpia, templo([hera])).
 
 adoracion(esparta, procesion(tesmoforias)).
 adoracion(atenas, procesion(tesmoforias)).
-adoracion(esparta, procesion(afrodisias)).
+adoracion(corinto, procesion(afrodisias)).
 
 adoracion(delfos, juegos(8, apolo)).
 adoracion(olimpia, juegos(4, zeus)).
@@ -25,7 +25,6 @@ adoracion(corinto, juegos(2, poseidon)).
 % agregado solo para los tests
 adoracion(creta, juegos(3, hermes)).
 ciudad(creta, 10000, dionisio).
-dios(hermes).
 
 % dura(Procesion, Dias)
 dura(tesmoforias, 3).
@@ -105,7 +104,7 @@ cantidad_devotos_por_dios_patrono(Dios, Ciudad, Devotos):-
 
 % 5 - Queremos saber quien es el dios más famoso en toda Grecia, que es aquel que más devotos tiene entre todas las ciudades.
 devotos_totales(Dios, CantidadDeDevotos):-
-    devotos(_, Dios, _),
+    dios(Dios),
     findall(Devotos, devotos(_, Dios, Devotos), TodosLosDevotos),
     sum_list(TodosLosDevotos, CantidadDeDevotos).
 
@@ -171,7 +170,7 @@ test("una ciudad no adora a un dios si no es su patrono y no tiene ningun ritual
 test("una ciudad adora a un dios si construyo un templo a ese dios", nondet):-
     adora_a(atenas, asclepios).
 test("una ciudad adora a un dios si festeja alguna procesion en honor a ese dios", nondet):-
-    adora_a(esparta, afrodita).
+    adora_a(corinto, afrodita).
 test("una ciudad adora a un dios si festeja juegos en honor a ese dios", nondet):-
     adora_a(corinto, poseidon).
 test("todas las ciudades adoran a hestia", nondet):-
@@ -189,7 +188,7 @@ test("un dios no es ambulante si es patrono de alguna ciudad"):-
 test("si un dios tiene un templo en su honor, eso representa 2000 devotos en esa ciudad", nondet):-
     devotos(atenas, asclepios, 2000).
 test("si un dios tiene una procesion en su honor en una ciudad, eso representa tantos devotos como 15000 dividido la cantidad de dias de procesion", nondet):-
-    devotos(esparta, afrodita, 15000).
+    devotos(corinto, afrodita, 15000).
 test("si un dios tiene juegos en su honor en una ciudad, eso representa 10000 devotos por la cantidad de anios que hay entre cada edicion de esos juegos", nondet):-
     devotos(creta, hermes, 30000).
 test("si un dios es patrono de una ciudad en una ciudad, eso representa tantos devotos como 3/4 de la poblacion de la ciudad", nondet):-
