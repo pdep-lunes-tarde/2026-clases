@@ -1,5 +1,5 @@
 % agregado predicado para tener un generador dios\1 que ligue Dios solo una vez con cada dios
-dioses([atenea, hefesto, asclepios, apolo, zeus, hera, afrodita, demeter, persefone, hestia, hades, poseidon]).
+dioses([atenea, hefesto, asclepios, apolo, zeus, hera, afrodita, demeter, persefone, hestia, hades, poseidon, hermes, dionisio, ares, artemisa, hebe, ilitia, triton, eros, fobos, deimos, harmonia, rea, cronos]).
 dios(Dios):-
     dioses(Dioses),
     member(Dios, Dioses).
