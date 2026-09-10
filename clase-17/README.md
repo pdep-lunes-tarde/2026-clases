@@ -8,6 +8,16 @@ Código: acá :D
 
 ## ¿Que hay para la clase que viene?
 
+### TP Integrador
+
+- Armar grupos de objetos y usar el canal de discord #asignar-grupo para crear sus grupos.
+
+Recuerden, es usando el comando /create_group. Si mantienen el mismo grupo, es su oportunidad de elegir un mejor nombre que grupo-NUMERO.
+
+- Pensar ideas de juegos para el TP, la idea es que luego de la próxima clase ya puedan comenzar el TP.
+
+### TPs cortos
+
 Github classroom ya no existe :(, así que ahora van a tener repos creados en los cuales trabajar pero ya no hay link para aceptar assignment.
 
 Directamente, busquen en la organización lo siguiente: "2026-objetos-tp-" y deberían visualizar los repos a los cuales tienen acceso. También pueden verlos en este [link](https://github.com/orgs/pdep-lunes-tarde/repositories?language=&q=2026-objetos-tp-&sort=&type=all).
