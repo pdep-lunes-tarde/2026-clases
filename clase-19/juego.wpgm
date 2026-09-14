@@ -1,0 +1,31 @@
+import snake.snake
+import wollok.game.*
+
+object moverseALaDerecha {
+    method apply() {
+        snake.moverseALaDerecha()
+    }
+}
+
+object juegoSnake {
+    method configuracionInicial() {
+        game.cellSize(32)
+        game.width(7)
+        game.height(11)
+        game.ground("celda.png")
+    }
+    method configurar() {
+        game.addVisual(snake)
+        game.onTick(200, "moverse", snake)
+        game.schedule(800, {
+            game.stop()
+        })
+        keyboard.right().onPressDo(moverseALaDerecha)
+    }
+}
+
+program juego {
+    juegoSnake.configuracionInicial()
+    juegoSnake.configurar()
+    game.start()
+}
