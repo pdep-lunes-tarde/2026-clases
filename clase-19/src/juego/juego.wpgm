@@ -1,0 +1,75 @@
+import wollok.game.*
+
+object arriba{
+
+}
+
+object izquierda{
+
+}
+
+object abajo{
+
+}
+
+object derecha{
+
+}
+object vibora {
+    var position=game.center()
+    var direccion = arriba
+
+    method position() = position
+
+    method image() = "viborita_cabeza_arriba.png"
+
+    method moverse(){
+    
+        if(direccion == arriba){
+            position =position.up(1)
+        }
+        if(direccion == izquierda){
+     position =position.left(1)
+        }
+        
+        if(direccion == derecha){
+     position =position.right(1)
+        }
+        
+        if(direccion == abajo){
+     position =position.down(1)
+        }
+    }
+
+    method direccion(unaDireccion){
+        direccion = unaDireccion
+    }
+}
+
+object moverVibora {
+    method apply() {
+      vibora.moverse()
+    }
+}
+
+object moverDerecha{
+    method apply(){
+        vibora.direccion(derecha)
+    }
+}
+
+program miJuego {
+    game.width(7)
+    game.height(11)
+    game.ground("celda.png")
+    game.cellSize(32)
+    game.start()
+    game.addVisual(vibora)
+    game.onTick(600, "moverse", { vibora.moverse() } )
+    keyboard.right().onPressDo({ vibora.direccion(derecha) })
+    keyboard.left().onPressDo({ vibora.direccion(izquierda) })
+    keyboard.up().onPressDo({ vibora.direccion(arriba) })
+    keyboard.down().onPressDo({ vibora.direccion(abajo) })
+
+    console.println("¡Hola Mundo!")
+}

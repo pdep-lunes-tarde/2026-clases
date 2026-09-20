@@ -89,12 +89,12 @@ Primero, pensemos lo siguiente:
 Una vez contestadas esas preguntas,
 - ➡️ implementar el código necesario para que la viborita se pueda mover.
 
-Ahora, lo que queremos es que esa acción (moverse) ocurra cada cierta cantidad de tiempo. El objeto `game` sabe contestar el mensaje `.onTick(milisegundos, accion)` que configura una acción que sucede cada una cantidad de milisegundos.
+Ahora, lo que queremos es que esa acción (moverse) ocurra cada cierta cantidad de tiempo. El objeto `game` sabe contestar el mensaje `.onTick(milisegundos, nombreDeAccion, accion)` que configura una acción que sucede cada una cantidad de milisegundos.
 
 Una `acción` es cualquier objeto que entienda el mensaje `.apply()`. Lo que va a hacer `game` es cada esa cantidad de milisegundos que hayamos pasado, enviar el mensaje `.apply()` a la acción que le dimos.
 
 - ➡️ Crear un objeto que representa la acción que queremos ejecutar (hacer que la viborita se mueva).
-- ➡️ Mandarle el mensaje `.onTick(milisegundos, accion)` a `game` con unos milisegundos que elijamos y la acción que hará que la viborita se mueva.
+- ➡️ Mandarle el mensaje `.onTick(milisegundos, nombreDeAccion, accion)` a `game` con unos milisegundos que elijamos y la acción que hará que la viborita se mueva.
 - ➡️ Probar si esto funciona.
 
 -----------
@@ -122,7 +122,7 @@ Esto probablemente signifique cambiar cómo funciona la viborita, que ahora debe
 
 ### Bloques
 
-Ya agregamos varias acciones al juego y las usamos como parte de la configuración del juego con los mensajes `.onTick(milisegundos, accion)` de `game` y `.onPressDo(accion)` de las teclas.
+Ya agregamos varias acciones al juego y las usamos como parte de la configuración del juego con los mensajes `.onTick(milisegundos, nombreDeAccion, accion)` de `game` y `.onPressDo(accion)` de las teclas.
 
 Esto funciona perfecto, pero, esta idea de tener un objeto que represente cierta acción o lógica es tan común que muchos lenguajes tienen una forma especial de crear objetos para usar de esta manera.
 
@@ -139,7 +139,7 @@ En Wollok se los llama bloques, y son objetos que se pueden construir escribiend
 - ➡️ Discutir: ¿Qué mensaje habría que mandarle a miBloque para que haga su acción? ¿Se puede ejecutar múltiples veces?
 - ➡️ Probar lo siguiente en la terminal, `5.times { n => console.println(n) }`
 - ➡️ Discutir: ¿Qué hace `times`? ¿Qué objetos lo entienden? ¿Qué diferencia hay entre este bloque y `miBloque`?
-- ➡️ Reemplazar las acciones que habíamos creado antes para usar en `.onTick(milisegundos, accion)` y en `.onPressDo(accion)` por bloques.
+- ➡️ Reemplazar las acciones que habíamos creado antes para usar en `.onTick(milisegundos, nombreDeAccion, accion)` y en `.onPressDo(accion)` por bloques.
 
 -----------
 
