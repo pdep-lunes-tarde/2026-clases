@@ -1,3 +1,5 @@
+// De los alquimistas sabemos que tienen una suerte y una cantidad de salud, ambos valores los representamos con números.
+
 // Los ingredientes de pociones que conocemos por ahora son:
 // - Bigote de gato, cuya rareza es 1.
 // - Trébol, que si tienen 4 hojas su rareza es de 20, si no, es de 1.
@@ -42,17 +44,3 @@
 // - Si es un alquimista gourmet, que se cumple si sólo vende pociones de rareza mayor a 5.
 // - Cuál es su cliente favorito, que es aquel que compró más pociones.
 
-
-// - Bigote de gato, cuya rareza es 1.
-// - Trébol, que si tienen 4 hojas su rareza es de 20, si no, es de 1.
-// - Hiedra venenosa, cuya rareza es igual a la concentración de veneno que poseen, la cual podemos representar con un número.
-
-// 8. Queremos mantener un registro de las ventas de un alquimista.
-// Cuando un alquimista vende una poción, queremos registrar:
-// - A quién se la vendió (que va a ser otro alquimista).
-// - Cuál fue la poción vendida.
-
-// Esta información la queremos poder consultar para saber:
-// - Cuántos clientes tiene.
-// - Si es un alquimista gourmet, que se cumple si sólo vende pociones de rareza mayor a 5.
-// - Cuál es su cliente favorito, que es aquel que compró más pociones.
