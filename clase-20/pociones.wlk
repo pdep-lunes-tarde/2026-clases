@@ -5,6 +5,106 @@
 // - Trébol, que si tienen 4 hojas su rareza es de 20, si no, es de 1.
 // - Hiedra venenosa, cuya rareza es igual a la concentración de veneno que poseen, la cual podemos representar con un número.
 
+class Alquimista {
+    var salud
+    var suerte
+
+    method aplicarPocion(pocion) {
+        pocion.afectar(self)
+    }
+
+    method aumentarSalud(cantidad) {
+        salud = 0.max(salud + cantidad)
+    }
+
+    method disminuirSalud(cantidad) {
+        salud = 0.max(salud - cantidad)
+    }
+
+    method aumentarSuerte(cantidad) {
+        suerte = 0.max(suerte + cantidad)
+    }
+}
+
+object bigoteDeGato {
+    method rareza() = 1
+
+    method afectar(alquimista) {
+        alquimista.aumentarSalud(1)
+        alquimista.aumentarSuerte(1)
+    }
+
+    method hervir() {
+        // no hace nada
+    }
+}
+
+class Trebol {
+    var hojas
+
+    method rareza() = if (hojas == 4) 20 else 1
+
+    method afectar(alquimista) {
+        if (hojas == 4) {
+            alquimista.aumentarSuerte(20)
+        }
+    }
+
+    method hervir() {
+        hojas -= 1
+    }
+}
+
+class HiedraVenenosa {
+    var concentracionDeVeneno
+
+    method rareza() = concentracionDeVeneno
+
+    method afectar(alquimista) {
+        alquimista.disminuirSalud(2 * concentracionDeVeneno)
+    }
+
+    method hervir() {
+        concentracionDeVeneno *= 2
+    }
+}
+
+class Pocion {
+    var ingredientes = []
+
+    // method ingredientes() = ingredientes.copy() // copy() aca nos sirve para evitar modificar la lista de ingredientes
+
+    method agregar(unIngrediente) {
+        ingredientes.add(unIngrediente)
+    }
+
+    method cantidadDeIngredientes() {
+        return ingredientes.size()
+    }
+
+    method rareza() {
+        if (ingredientes.isEmpty()) {
+            return 0
+        }
+
+        const rarezaTotal = ingredientes.sum{ ingrediente => ingrediente.rareza() } //ingredientes.map{ ingrediente => ingrediente.rareza() }.sum()
+
+        return rarezaTotal / self.cantidadDeIngredientes()
+    }
+
+    method afectar(alquimista) {
+        ingredientes.forEach{ ingrediente => ingrediente.afectar(alquimista) }
+    }
+
+    method destilar() {
+        //ingredientes = ingredientes.filter{ ingrediente => ingrediente.rareza() > 5 } // filter es de consulta, NO de efecto
+        ingredientes.removeAllSuchThat{ ingrediente => ingrediente.rareza() <= 5 }
+    }
+
+    method hervir() {
+        ingredientes.forEach{ ingrediente => ingrediente.hervir() }
+    }
+}
 
 // 1. Conocer cuántos ingredientes tiene una poción.
 
