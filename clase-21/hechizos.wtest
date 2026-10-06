@@ -1,0 +1,31 @@
+import hechizos.*
+
+describe "hechizos" {
+    const meditar = new Meditar()
+    
+    test "meditar aumenta en 10 el mana del hechicero" {
+        const hechicero = new Hechicero(mana=5, vida = 10)
+
+        meditar.hacerMagia(hechicero)
+
+        assert.equals(15, hechicero.mana())
+    }
+
+
+    test "cuando un hechicero hace varias magias, se aplican los efectos de cada una" {
+        const hechicero = new Hechicero(mana=5, vida = 10)
+
+        hechicero.hacerMagias([meditar, meditar])
+
+        assert.equals(25, hechicero.mana())
+    }
+
+    test "cure aumenta la vida en 20 y disminuye el mana en 10 del hechicero" {
+        const hechicero = new Hechicero(mana=30, vida = 10)
+
+        cure.hacerMagia(hechicero)
+
+        assert.equals(20, hechicero.mana())
+        assert.equals(30, hechicero.vida())
+    }
+}

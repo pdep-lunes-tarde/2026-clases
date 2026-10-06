@@ -12,10 +12,11 @@ class B inherits A {
 }
 
 class C inherits B {
- method m1() = self.m2()
- override method m3() = self.m4()
- override method m5() = 9
- method m7() = 1 + self.m6()
+    // method m2() = super()
+    method m1() = self.m2()
+    override method m3() = self.m4()
+    override method m5() = 9
+    method m7() = 1 + self.m6()
 }
 
 class D inherits C {
