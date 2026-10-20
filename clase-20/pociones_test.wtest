@@ -1,0 +1,90 @@
+import pociones.Trebol
+import pociones.Pocion
+import pociones.Alquimista
+
+describe "venta de pociones" {
+    const vendedor = new Alquimista(salud=10, suerte=10)
+
+    method pocionRara() = new Pocion(ingredientes=[new Trebol(hojas=4)])
+
+    test "un alquimista comienza sin clientes" {
+        assert.equals(0, vendedor.cantidadClientes())
+    }
+
+    test "un alquimista que vendio una pocion tiene 1 cliente" {
+        const pocion = new Pocion(ingredientes=[new Trebol(hojas=3)])
+        const comprador = new Alquimista(salud=10, suerte=10)
+
+        vendedor.venderA(pocion, comprador)
+
+        assert.equals(1, vendedor.cantidadClientes())
+    }
+
+    test "un alquimista tiene tantos clientes como ventas haya realizado a diferentes alquimistas" {
+        const pocion = new Pocion(ingredientes=[new Trebol(hojas=3)])
+        const comprador = new Alquimista(salud=10, suerte=10)
+        const otraPocion = new Pocion(ingredientes=[new Trebol(hojas=3)])
+        const otroComprador = new Alquimista(salud=10, suerte=10)
+
+        vendedor.venderA(pocion, comprador)
+        vendedor.venderA(otraPocion, otroComprador)
+
+        assert.equals(2, vendedor.cantidadClientes())
+    }
+
+    test "vender dos veces a un mismo cliente no aumenta la cantidad de clientes" {
+        const pocion = new Pocion(ingredientes=[new Trebol(hojas=3)])
+        const comprador = new Alquimista(salud=10, suerte=10)
+        const otraPocion = new Pocion(ingredientes=[new Trebol(hojas=3)])
+
+        vendedor.venderA(pocion, comprador)
+        vendedor.venderA(otraPocion, comprador)
+
+        assert.equals(1, vendedor.cantidadClientes())
+    }
+
+    
+    test "si un alquimista no vendio ninguna pocion no es gourmet" {
+        assert.notThat(vendedor.esGourmet())
+    }
+
+    test "un alquimista es gourmet si solo vende pociones de rareza mayor a 5" {
+        const comprador = new Alquimista(salud=10, suerte=10)
+
+        vendedor.venderA(self.pocionRara(), comprador)
+        vendedor.venderA(self.pocionRara(), comprador)
+
+        assert.that(vendedor.esGourmet())
+    }
+
+    test "un alquimista no es gourmet si vendio alguna pocion de rareza menor a 5" {
+        const comprador = new Alquimista(salud=10, suerte=10)
+
+        vendedor.venderA(self.pocionRara(), comprador)
+        vendedor.venderA(new Pocion(ingredientes=[new Trebol(hojas=3)]), comprador)
+
+        assert.notThat(vendedor.esGourmet())
+    }
+
+    test "el cliente favorito de un alquimista que tiene un solo cliente es ese cliente" {
+        const comprador = new Alquimista(salud=10, suerte=10)
+        const pocion = new Pocion(ingredientes=[new Trebol(hojas=3)])
+
+        vendedor.venderA(pocion, comprador)
+
+        assert.equals(comprador, vendedor.clienteFavorito())
+    }
+
+    test "el cliente favorito de un alquimista es aquel que le compro mas pociones" {
+        const unComprador = new Alquimista(salud=10, suerte=10)
+        const otroComprador = new Alquimista(salud=10, suerte=10)
+        const compradorFavorito = new Alquimista(salud=10, suerte=10)
+
+        vendedor.venderA(self.pocionRara(), unComprador)
+        vendedor.venderA(self.pocionRara(), otroComprador)
+        vendedor.venderA(self.pocionRara(), compradorFavorito)
+        vendedor.venderA(self.pocionRara(), compradorFavorito)
+
+        assert.equals(compradorFavorito, vendedor.clienteFavorito())
+    }
+}

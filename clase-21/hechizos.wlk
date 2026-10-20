@@ -67,14 +67,6 @@ class Rezar {
     }
 }
 
-class Curacion inherits Hechizo {
-    const curacion
-
-    override method hacerMagia(hechicero) {
-        hechicero.variarMana(- costoMana)
-        hechicero.curarConMagia(curacion)
-    }
-}
 const cure = new Curacion(costoMana = 10, curacion = 20)
 const cura = new Curacion(costoMana = 25, curacion = 50)
 const curaga = new Curacion(costoMana = 50, curacion = 100)
@@ -85,18 +77,28 @@ class Hechizo {
     method puedeHacerla(hechicero) {
         return hechicero.mana() >= costoMana
     }
-    method hacerMagia(hechicero)
+    method hacerMagia(hechicero) {
+        hechicero.variarMana(-costoMana)
+    }
 }
+class Curacion inherits Hechizo {
+    const curacion
 
+    override method hacerMagia(hechicero) {
+        super(hechicero)
+        hechicero.curarConMagia(curacion)
+    }
+}
 class CrearAmuleto inherits Hechizo {
     const costoVida
 
     override method hacerMagia(hechicero) {
-        hechicero.variarMana(- costoMana)
+        super(hechicero)
         hechicero.variarVida(- costoVida)
         const nuevoAmuleto = new Amuleto(poder = costoVida + costoMana)
         hechicero.equiparAmuleto(nuevoAmuleto)
     }
 }
+
 
 // const mago = new Hechicero(mana=10)

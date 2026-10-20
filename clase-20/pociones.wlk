@@ -5,26 +5,31 @@
 // - Trébol, que si tienen 4 hojas su rareza es de 20, si no, es de 1.
 // - Hiedra venenosa, cuya rareza es igual a la concentración de veneno que poseen, la cual podemos representar con un número.
 
-class Alquimista {
-    var salud
-    var suerte
+// 1. Conocer cuántos ingredientes tiene una poción.
 
-    method aplicarPocion(pocion) {
-        pocion.afectar(self)
-    }
 
-    method aumentarSalud(cantidad) {
-        salud = 0.max(salud + cantidad)
-    }
+// 2. Poder agregar un ingrediente a una poción.
 
-    method disminuirSalud(cantidad) {
-        salud = 0.max(salud - cantidad)
-    }
 
-    method aumentarSuerte(cantidad) {
-        suerte = 0.max(suerte + cantidad)
-    }
-}
+// 3. Cuál es la rareza de una poción, que es el promedio de rarezas de sus ingredientes. Si no tiene ingredientes, la rareza es 0.
+
+
+// 4. Cómo afecta una poción a un alquimista, que es aplicar los efectos de cada uno de sus ingredientes:
+// - El bigote de gato aumenta la suerte del alquimista en 1 y la salud también en 1.
+// - El trébol aumenta la suerte del alquimista en 20 pero solo si es de 4 hojas, si no, no hace nada.
+// - La hiedra venenosa disminuye la salud del alquimista en 2 * la concentración de veneno que tiene.
+
+
+// 5. Queremos destilar una poción, lo cual la deja solo con sus ingredientes de rareza mayor a 5.
+
+
+// 6. Queremos hervir la poción, lo cual hierve cada uno de sus ingredientes
+// - Al hervir el bigote de gato queda igual.
+// - El trébol pierde una hoja.
+// - La hiedra venenosa aumenta su concentración, la cual se multiplica por 2.
+
+
+// 7. Queremos que una poción pueda ser ingrediente de otra poción.
 
 object bigoteDeGato {
     method rareza() = 1
@@ -106,32 +111,6 @@ class Pocion {
     }
 }
 
-// 1. Conocer cuántos ingredientes tiene una poción.
-
-
-// 2. Poder agregar un ingrediente a una poción.
-
-
-// 3. Cuál es la rareza de una poción, que es el promedio de rarezas de sus ingredientes. Si no tiene ingredientes, la rareza es 0.
-
-
-// 4. Cómo afecta una poción a un alquimista, que es aplicar los efectos de cada uno de sus ingredientes:
-// - El bigote de gato aumenta la suerte del alquimista en 1 y la salud también en 1.
-// - El trébol aumenta la suerte del alquimista en 20 pero solo si es de 4 hojas, si no, no hace nada.
-// - La hiedra venenosa disminuye la salud del alquimista en 2 * la concentración de veneno que tiene.
-
-
-// 5. Queremos destilar una poción, lo cual la deja solo con sus ingredientes de rareza mayor a 5.
-
-
-// 6. Queremos hervir la poción, lo cual hierve cada uno de sus ingredientes
-// - Al hervir el bigote de gato queda igual.
-// - El trébol pierde una hoja.
-// - La hiedra venenosa aumenta su concentración, la cual se multiplica por 2.
-
-
-// 7. Queremos que una poción pueda ser ingrediente de otra poción.
-
 
 // Venta de pociones
 // 8. Queremos mantener un registro de las ventas de un alquimista.
@@ -144,3 +123,57 @@ class Pocion {
 // - Si es un alquimista gourmet, que se cumple si sólo vende pociones de rareza mayor a 5.
 // - Cuál es su cliente favorito, que es aquel que compró más pociones.
 
+class Alquimista {
+    var salud
+    var suerte
+    var pocionesVendidasPorCliente = new Dictionary()
+    
+    method aplicarPocion(pocion) {
+        pocion.afectar(self)
+    }
+
+    method aumentarSalud(cantidad) {
+        salud = 0.max(salud + cantidad)
+    }
+
+    method disminuirSalud(cantidad) {
+        salud = 0.max(salud - cantidad)
+    }
+
+    method aumentarSuerte(cantidad) {
+        suerte = 0.max(suerte + cantidad)
+    }
+
+    method cantidadClientes() {
+        return self.clientes().size()
+    }
+
+    method venderA(unaPocion, otroAlquimista) {
+        if(!pocionesVendidasPorCliente.containsKey(otroAlquimista)) {
+            pocionesVendidasPorCliente.put(otroAlquimista, new Set())
+        }
+        const pocionesVendidasAEseAlquimista = pocionesVendidasPorCliente.get(otroAlquimista)
+
+        pocionesVendidasAEseAlquimista.add(unaPocion)
+    }
+
+    method pocionesVendidas() {
+        return pocionesVendidasPorCliente.values().flatten()
+    }
+
+    method clientes() {
+        return pocionesVendidasPorCliente.keys()
+    }
+
+    method esGourmet() {
+        return !self.pocionesVendidas().isEmpty() && self.pocionesVendidas().all { pocion => pocion.rareza() > 5 }
+    }
+
+    method clienteFavorito() {
+        return self.clientes().max { cliente => self.cuantasPocionesCompro(cliente) }
+    }
+
+    method cuantasPocionesCompro(unCliente) {
+        return pocionesVendidasPorCliente.getOrElse(unCliente, { new Set() }).size()
+    }
+}
