@@ -1,0 +1,102 @@
+import avesMensajeras.Ciudad
+import avesMensajeras.Ave
+
+const ciudadCeleste = new Ciudad(nombre = "Ciudad Celeste", posicion = game.at(12, 14))
+const ciudadAzafran = new Ciudad(nombre = "Ciudad Azafrán", posicion = game.at(12, 11))
+const ciudadAzulona = new Ciudad(nombre = "Ciudad Azulona", posicion = game.at(9, 11))
+const puebloLavanda = new Ciudad(nombre = "Pueblo Lavanda", posicion = game.at(16, 11))
+const ciudadCarmin = new Ciudad(nombre = "Ciudad Carmín", posicion = game.at(12, 7))
+const islaCanela = new Ciudad(nombre = "Isla Canela", posicion = game.at(4, 1))
+const puebloPaleta = new Ciudad(nombre = "Pueblo Paleta", posicion = game.at(4, 5))
+const ciudadVerde = new Ciudad(nombre = "Ciudad Verde", posicion = game.at(4, 8))
+const ciudadPlateada = new Ciudad(nombre = "Ciudad Plateada", posicion = game.at(4, 13))
+const mesetaAnil = new Ciudad(nombre = "Meseta Anil", posicion = game.at(2, 14))
+
+const ciudades = [
+    ciudadCeleste,
+    ciudadAzafran,
+    ciudadAzulona,
+    puebloLavanda,
+    ciudadCarmin,
+    islaCanela,
+    puebloPaleta,
+    ciudadVerde,
+    ciudadPlateada,
+    mesetaAnil
+]
+
+object pajarito {
+    const ave = new Ave(energia = 30, ciudad = ciudadCeleste)
+
+    method position() = ave.ciudad().posicion()
+
+    method image() = if (ave.energia() > 10) "ave.gif" else "ave_cansada.gif"
+
+    method energia() = ave.energia()
+
+    method volarHacia(destino) {
+        const origen = ave.ciudad()
+        ave.volarA(destino)
+        etiquetaMensaje.mostrarExito("Voló de " + origen.nombre() + " a " + destino.nombre())
+    }
+
+    method descansar() {
+        ave.descansar()
+        etiquetaMensaje.mostrarExito("Descansó")
+    }
+}
+
+object etiquetaEnergia {
+    method textColor() = "FFFFFF"
+    method position() = game.at(3, game.height() - 2)
+    method text() = "Energía: " + pajarito.energia().roundDown(2)
+}
+
+object etiquetaDescansar {
+    method textColor() = "FFFFFF"
+    method position() = game.at(3, game.height() - 3)
+    method text() = "Descansar (Z)"
+}
+
+object etiquetaMensaje {
+    var texto = ""
+    var esError = false
+
+    method position() = game.at(game.width() / 2, game.height() - 1)
+    method text() = texto
+    method textColor() = if (esError) "FF0000" else "000000"
+
+    method mostrarExito(unTexto) {
+        texto = unTexto
+        esError = false
+    }
+
+    method mostrarError(unTexto) {
+        texto = unTexto
+        esError = true
+    }
+}
+
+program avesMensajeras {
+    game.width(20)
+    game.height(18)
+    game.cellSize(24)
+    game.boardGround("map.png")
+    game.title("Aves mensajeras")
+
+    game.addVisual(pajarito)
+    game.addVisual(etiquetaEnergia)
+    game.addVisual(etiquetaDescansar)
+    game.addVisual(etiquetaMensaje)
+
+    game.onClickDo { posicionClick =>
+        if(ciudades.any { ciudad => ciudad.posicion() == posicionClick }) {
+            const ciudadDestino = ciudades.find { ciudad => ciudad.posicion() == posicionClick }
+            pajarito.volarHacia(ciudadDestino)
+        }
+    }
+
+    keyboard.z().onPressDo({ pajarito.descansar() })
+
+    game.start()
+}
