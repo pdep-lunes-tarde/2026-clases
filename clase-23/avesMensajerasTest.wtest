@@ -1,0 +1,80 @@
+import avesMensajeras.Ave
+import avesMensajeras.Ciudad
+import game.*
+
+describe "aves mensajeras" {
+    test "cuando un ave vuela a una ciudad disminuye su energia en la distancia entre la ciudad en la que estaba y la ciudad destino" {
+        const ciudadOrigen = new Ciudad(posicion=new Position(x=0,y=0))
+        const ave = new Ave(ciudad=ciudadOrigen, energia=5)
+        const ciudadDestino = new Ciudad(posicion=new Position(x=1, y=0))
+
+        ave.volar(ciudadDestino)
+
+        assert.equals(4, ave.energia())
+    }
+
+    test "tras volar a una ciudad, el ave se tiene que encontrar en la ciudad a la que volo" {
+        const ciudadOrigen = new Ciudad(posicion=new Position(x=0,y=0))
+        const ave = new Ave(ciudad=ciudadOrigen, energia=5)
+        const ciudadDestino = new Ciudad(posicion=new Position(x=1, y=0))
+
+        ave.volar(ciudadDestino)
+
+        assert.equals(ciudadDestino, ave.ciudad())
+    }
+
+    test "si un ave no tiene suficiente energia para volar a una ciudad, no vuela y se lanza una excepción" {
+        const ciudadOrigen = new Ciudad(posicion=new Position(x=0,y=0))
+        const ave = new Ave(ciudad=ciudadOrigen, energia=5)
+        const ciudadDestino = new Ciudad(posicion=new Position(x=10, y=10))
+
+        assert.throwsException({ ave.volar(ciudadDestino) })
+        assert.equals(ciudadOrigen, ave.ciudad())
+        assert.equals(5, ave.energia())
+    }
+
+    test "al hacer un recorrido, el ave vuela a cada ciudad en orden" {
+        const ciudadOrigen = new Ciudad(posicion=new Position(x=0,y=0))
+        const ave = new Ave(ciudad=ciudadOrigen, energia=5)
+        const primerDestino = new Ciudad(posicion=new Position(x=1,y=0))
+        const segundoDestino = new Ciudad(posicion=new Position(x=2,y=0))
+
+        ave.realizarRecorrido([primerDestino, segundoDestino])
+
+        assert.equals(segundoDestino, ave.ciudad())
+        assert.equals(3, ave.energia())
+    }
+
+    test "al hacer un recorrido, si un ave no tiene suficiente energia para realizar alguno de los viajes, entonces no hace ningun vuelo" {
+        const ciudadOrigen = new Ciudad(posicion=new Position(x=0,y=0))
+        const ave = new Ave(ciudad=ciudadOrigen, energia=5)
+        const primerDestino = new Ciudad(posicion=new Position(x=1,y=0))
+        const segundoDestino = new Ciudad(posicion=new Position(x=11,y=0))
+
+        assert.throwsException {
+            ave.realizarRecorrido([primerDestino, segundoDestino])
+        }
+
+        assert.equals(ciudadOrigen, ave.ciudad())
+        assert.equals(5, ave.energia())
+    }
+
+    test "la distancia entre 2 ciudades se calcula como la distancia eucliadana entre las posiciones de esas 2 ciudades" {
+        const unaCiudad = new Ciudad(posicion=new Position(x=0,y=0))
+        const otraCiudad = new Ciudad(posicion=new Position(x=1,y=2))
+
+        const distanciaEsperada = 5.squareRoot()
+        assert.equals(distanciaEsperada, unaCiudad.distanciaA(otraCiudad))
+    }
+
+    test "llevar un producto a una ciudad deberia hacer que deje de necesitarlo" {
+        const unaCiudad = new Ciudad(posicion=new Position(x=0,y=0), produccion="alfajores")
+        unaCiudad.necesitar("yerba")
+        unaCiudad.necesitar("yerba")
+        const ciudadProveedora = new Ciudad(posicion=new Position(x=0,y=0), produccion="yerba")
+
+        unaCiudad.llevar("yerba", ciudadProveedora)
+
+        assert.equals(true, unaCiudad.estaSatisfecha())
+    }
+}

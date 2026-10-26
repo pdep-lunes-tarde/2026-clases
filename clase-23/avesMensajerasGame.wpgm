@@ -36,8 +36,15 @@ object pajarito {
 
     method volarHacia(destino) {
         const origen = ave.ciudad()
-        ave.volarA(destino)
-        etiquetaMensaje.mostrarExito("Voló de " + origen.nombre() + " a " + destino.nombre())
+        try {
+            ave.volar(destino)
+            etiquetaMensaje.mostrarExito("Voló de " + origen.nombre() + " a " + destino.nombre())
+        } catch excepcion: DomainException {
+            etiquetaMensaje.mostrarError(excepcion.message())
+        } catch excepcion {
+            etiquetaMensaje.mostrarError("Algo salió mal, contacta a Juan")
+        }
+        
     }
 
     method descansar() {
